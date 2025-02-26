@@ -4,13 +4,26 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
 import KeycloakProvider from "./providers/KeycloakProvider";
+import { Provider } from "react-redux";
+import store from "./store";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#1976d2",
+    },
+  },
+});
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <KeycloakProvider>
-          <App />
-        </KeycloakProvider>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <BrowserRouter>     
+            <App />        
+      </BrowserRouter>
+    </Provider>
+    </ThemeProvider>
   </StrictMode>,
 )
