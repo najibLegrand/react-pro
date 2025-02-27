@@ -7,6 +7,7 @@ import KeycloakProvider from "./providers/KeycloakProvider";
 import { Provider } from "react-redux";
 import store from "./store";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import "./i18n"; // important pour initialiser avant le render
 
 const theme = createTheme({
   palette: {
